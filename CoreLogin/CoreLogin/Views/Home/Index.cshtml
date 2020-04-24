@@ -1,0 +1,50 @@
+﻿@model CoreLogin.Models.Ad_login
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <!--el asp-action buscara al metodo index que esta en el modelo la clase Ad_login  y le mandara los datos por post-->
+                <form class="form-horizontal" asp-action="Index">
+
+                    <div class="form-group">
+                        <label class="custom-control-label">Admin ID</label>
+                        <!--en el asp-for hay que indicar a que atributo de la clase hay que enviar el dato-->
+                        <input asp-for="Admin_id" class="form-control" type="text" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="custom-control-label">Password</label>
+                        <input asp-for="Ad_Password" class="form-control" type="password" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Submit" />
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</div>
+@{ 
+
+    if (TempData["msg"]!=null) { 
+    
+        <script>
+            alert('@TempData["msg"]');
+        </script>
+    
+    }
+}
